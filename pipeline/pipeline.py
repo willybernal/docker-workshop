@@ -1,0 +1,18 @@
+import sys
+import pandas as pd
+
+print('Hello Pipeline!')
+print('Arguments:', sys.argv)
+print('Number of arguments:', len(sys.argv))
+
+month = int(sys.argv[1])
+df = pd.DataFrame({'day':[1,2],'num_passengers':[3,4]})
+df['month'] = month
+
+df.to_parquet(f'output_{month}.parquet', index=False)
+
+
+
+print(df.head())
+print(f'Hello Pipeline!, {month}')
+
